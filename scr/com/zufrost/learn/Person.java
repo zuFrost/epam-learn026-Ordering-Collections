@@ -1,5 +1,7 @@
 package com.zufrost.learn;
 
+import java.util.Comparator;
+
 public class Person implements Comparable<Person> {
     private int personId;
     private String name = "";
@@ -9,6 +11,14 @@ public class Person implements Comparable<Person> {
 
     public Person(String name) {
         this.name = name;
+    }
+
+    public static class NameComparator implements Comparator<Person> {
+        @Override
+        public int compare(Person o1, Person o2) {
+            return o1.getName().compareTo(o2.getName());
+        }
+
     }
 
     public Person(int personId, String name) {
